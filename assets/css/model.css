@@ -1,0 +1,18 @@
+.modal.fade {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+.custombox-fadein.custombox-content.custombox-open {
+    animation-delay: 0ms !important;
+    animation-duration: 0ms !important;
+}
+
+.custombox-fadein.custombox-content.custombox-close {
+    animation-delay: 0ms !important;
+    animation-duration: 0ms !important;
+}
+

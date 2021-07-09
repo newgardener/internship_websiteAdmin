@@ -1,0 +1,30 @@
+
+.section-news > ul[data-length="3"] {
+    top: 30px;
+    animation-name: news-3;
+    animation-duration: 18s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-delay: 3s;
+}
+
+@keyframes news-3 {
+    0% {
+        top: 0px !important; 
+        visibility: visible;
+    }
+    5% {top: 0;}
+
+    30% {top: 0;}
+    35% {top: -30px;}
+
+    60% {top: -30px;}
+    65% {top: -60px;}
+
+    90% {top: -60px;}
+    95% {top: -90px;}
+
+    99% {top: -90px; visibility: hidden;}
+    100% {top: 30px; visibility: hidden;}
+}

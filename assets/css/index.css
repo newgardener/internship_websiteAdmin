@@ -1,0 +1,13 @@
+@media (max-width: 767.98px) {
+    .content-card {
+
+        background-color: transparent !important;
+
+    }
+}
+
+.card-content {
+    height: auto;
+    width: auto;
+}
+

@@ -1,0 +1,30 @@
+<!-- ========== Left Sidebar Start ========== -->
+<div class="left-side-menu animate-right">
+    <div>
+        <!--- Sidemenu -->
+        <div id="sidebar-menu" class="">
+            <ul class="metismenu mt-3 " id="side-menu">
+                <li class="news-tab">
+                    <a href="/components/support-news.php">뉴스관리</a>
+                </li>
+
+                <li class="event-tab">
+                    <a href="/components/support-popup.php">이벤트팝업</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    const newsTab = document.querySelector('.news-tab');
+    const eventTab = document.querySelector('.event-tab');
+    newsTab.addEventListener('click', () => {
+        if (!newsTab.classList.contains('active')) newsTab.classList.add('active');
+        if (eventTab.classList.contains('active')) eventTab.classList.remove('active');
+    });
+    eventTab.addEventListener('click', () => {
+        if (!eventTab.classList.contains('active')) eventTab.classList.add('active');
+        if (newsTab.classList.contains('active')) newsTab.classList.remove('active');
+    });
+</script>

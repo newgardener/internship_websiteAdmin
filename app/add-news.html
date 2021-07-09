@@ -1,0 +1,126 @@
+<?php
+    include 'components/header.html';
+    include 'lib/DB.php';
+    ALLError();
+?>
+    <body>
+        <div id="wrapper">
+            <!-- TOPBAR -->
+            <?php 
+                include 'components/top-bar.html';
+            ?>
+            <!-- LEFT-SIDEBAR -->
+            <div class="left-side-menu animate-right">
+                <div>
+                    <div id="sidebar-menu" class="">
+                        <ul class="metismenu mt-3 " id="side-menu">
+                            <li class="news-tab">
+                                <a href="/components/support-news.php" class="active">뉴스관리</a>
+                            </li>
+            
+                            <li class="event-tab">
+                                <a href="/popup">이벤트팝업</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-page">
+                <div class="page__nav">
+                    <a href="/components/support-news.php">뉴스관리</a><a href="/news/write" class="nav-active"> > 작성하기</a>
+                </div>
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row pt-0">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <header>
+                                        <h1 class="home-h1">
+                                            작성하기
+                                        </h1>
+                                    </header>
+                                    <form class="news__write" method="POST" enctype="multipart/form-data" 
+                                          action="/lib/post_news.php" onsubmit="return verifyInputFields();"
+                                    >
+                                        <div class="info">
+                                            <div class="input-chunk">
+                                                <label for="source">언론사 정보</label>
+                                                <input type="text" name="source" id="source" placeholder="언론사명을 입력하세요.">
+                                            </div>
+                                            <div class="input-chunk">
+                                                <label for="press_date">보도 일자</label>
+                                                <input type="date" name="press_date" id="press_date">
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <div class="input-chunk">
+                                                <label for="thumbnail">썸네일 등록</label>
+                                                <div class="thumbnail__wrapper">
+                                                    <div class="canvas__wrapper">
+                                                        <canvas class="thumbnail-canvas"></canvas>
+                                                    </div>
+                                                    <div class="descript">
+                                                        <p>해당뉴스의 썸네일을 등록하세요.</p>
+                                                        <span id="blue">* 용량은 최대 2MB로 첨부가능합니다.</span>
+                                                        <input
+                                                            type="file"
+                                                            id="hidden-image-input"
+                                                            name="news-image"
+                                                            accept="image/*"
+                                                            capture="camera"
+                                                            onchange="readInputFile(event)"
+                                                            onclick="this.value=null;"
+                                                            style="visibility: hidden;"
+                                                        />
+                                                        <div class="btn__container" id="thumbnail">
+                                                            <button id="add-image">사진등록</button>
+                                                            <button id="back-to-default">사진삭제</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <div class="input-chunk">
+                                                <label for="title">제목</label>
+                                                <input type="text" name="title" id="title" placeholder="제목을 입력하세요.">
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <textarea name="content" id="summernote" cols="30" rows="10"></textarea>
+                                            <input type="hidden" name="plaintext" value="">
+                                        </div>
+                                        <div class="submit-btn">
+                                            <button type="submit" name="add" id="add-news">등록하기</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/assets/js/add-news.js?<?=$today?>"></script>
+        <script>
+            $(document).ready(function() {
+                $('#summernote').summernote();
+            });
+            $('#summernote').summernote({
+                height: 300,
+                tabsize: 2,
+                minHeight: null,
+                maxHeight: null,
+                focus: false
+            });
+
+            function toCleanText() {
+                console.log('cleanText formatting...');
+                let cleanText = $($("#summernote").summernote("code")).text();
+                console.log(cleanText);
+                return cleanText;
+            }
+        </script>
+    </body>
+</html>

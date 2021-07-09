@@ -1,0 +1,106 @@
+<?php
+  include 'components/header.html';
+?>
+    <body>
+        <div id="wrapper">
+            <!-- TOPBAR -->
+            <?php 
+                include 'components/top-bar.html';
+            ?>
+            <!-- LEFT-SIDEBAR -->
+            <div class="left-side-menu animate-right">
+                <div>
+                    <div id="sidebar-menu" class="">
+                        <ul class="metismenu mt-3 " id="side-menu">
+                            <li class="news-tab">
+                                <a href="/components/support-news.php">뉴스관리</a>
+                            </li>
+            
+                            <li class="event-tab">
+                                <a href="/components/support-popup.php" class="active">이벤트팝업</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-page">
+                <div class="page__nav">
+                    <a href="/components/support-popup.php">이벤트팝업</a><a href="/popup/write" class="nav-active"> > 작성하기</a>
+                </div>
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row pt-0">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <header>
+                                        <h1 class="home-h1">
+                                            팝업 작성하기
+                                        </h1>
+                                        <div class="btn__container">
+                                            <button id="preview">미리보기</button>
+                                        </div>
+                                    </header>
+                                    <form class="popup__write" method="POST" enctype="multipart/form-data" 
+                                          action="/lib/post_popup.php" onsubmit="return verifyInputFields();">
+                                        <div class="info">
+                                            <div class="input-chunk">
+                                                <label for="title">제목</label>
+                                                <input type="text" name="title" id="title-popup">
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <div class="input-chunk">
+                                                <label for="display_start">시작일</label>
+                                                <input type="datetime-local" name="display_start" id="display_start">
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <div class="input-chunk">
+                                                <label for="display_end">종료일</label>
+                                                <input type="datetime-local" name="display_end" id="display_end">
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <div class="canvas__wrapper" id="popup">
+                                                <span class="popup-close-descript">오늘 하루 보지 않기</span>
+                                                <div class="popup-close">
+                                                    <i class="far fa-times-circle"></i>
+                                                </div>
+                                                <canvas class="popup-canvas"></canvas>
+                                            </div>
+                                            <div class="input-chunk">
+                                                <label for="popup-img">이미지 첨부</label>
+                                                <input  type="file"
+                                                        name="popup-image"
+                                                        id="popup-hidden-input"      
+                                                        accept="image/*"
+                                                        onchange="readInputFile(event)"
+                                                        onclick="console.log(event);"
+                                                >
+                                                <span id="blue">*용량은 최대 3MB로 첨부 가능합니다</span>
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <div class="input-chunk">
+                                                <label for="popup-hide">팝업설정</label>
+                                                <div class="hide__wrapper">
+                                                    <span>팝업창 숨김</span>
+                                                    <input type="checkbox" name="hide" class="checkbox">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="submit-btn">
+                                            <button type="submit" name="add" id="add-popup">등록하기</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/assets/js/add-popup.js?<?=$today?>"></script>
+    </body>
+</html>

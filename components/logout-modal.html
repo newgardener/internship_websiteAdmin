@@ -1,0 +1,17 @@
+<div id="custom-modal-logout" class="modal-demo">
+    <div class="row justify-content-between">
+        <button type="button" class="close" onclick="Custombox.modal.close();">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.99992 4.40275L1.71401 0L0.318935 1.4331L4.60485 5.83585L-0.00012207 10.5664L1.39495 11.9995L5.99992 7.26895L10.6048 11.9994L11.9999 10.5663L7.39499 5.83585L11.6808 1.4332L10.2857 9.57125e-05L5.99992 4.40275Z" fill="#A3A4AC"/>
+            </svg>
+        </button>
+        <p class="custom-modal-title">로그아웃</p>
+    </div>
+    <div class="custom-modal-text modal-body">
+        <p>접속중인 대시보드에서 정말 로그아웃 하시겠습니까?</p>
+        <div class="btn-group-logout row justify-content-between align-items-center mt-5">
+            <button onclick="Custombox.modal.close();" class="btn btn-outlined ">취소</button>
+            <button class="btn btn-primary" id="btn-logout">로그아웃</button>
+        </div>
+    </div>
+</div>
